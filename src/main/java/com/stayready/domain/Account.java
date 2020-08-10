@@ -19,6 +19,55 @@ public class Account
     @Column(name = "NICK_NAME")
     private String nickName;
 
-    @Column(name = "")
+    @Column(name = "REWARDS")
+    private Integer rewards;
 
+    @Column(name = "BALANCE")
+    private Double balance;
+
+    //figure out how to represent the customer
+
+    public Long getId()
+    {
+        return id;
+    }
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+
+    public AccountType getAccountType()
+    {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType)
+    {
+        this.accountType.setAccountType(accountType);
+    }
+
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public Integer getRewards() {
+        return rewards;
+    }
+
+    public void setRewards(Integer rewards) {
+        this.rewards = rewards;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
 }
