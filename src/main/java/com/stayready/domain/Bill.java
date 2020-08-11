@@ -8,7 +8,7 @@ public class Bill {
     @Id
     @GeneratedValue
     @Column(name = "BILL_ID")
-    private Long id;
+    private Long id;  //why don't we name this billId?
 
     @Column(name = "STATUS")
     private Status status;
@@ -34,7 +34,7 @@ public class Bill {
     @Column(name = "PAYMENT_AMOUNT")
     private Double paymentAmount;
 
-    @Column(name = "BILL_ACCOUNT_ID")
+    @Column(name = "ACCOUNT_ID")
     private String accountId;  //the Account the bill is associated with
 
     public Long getId() {
