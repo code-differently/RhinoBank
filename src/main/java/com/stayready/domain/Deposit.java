@@ -17,16 +17,16 @@ public class Deposit {
     private String type;
 
     @Column(name = "TRANSACTION_DATE")
-    private String transaction_date;
+    private TransactionType transaction_date;
 
     @Column(name = "STATUS")
-    private String status;
+    private Status status;
 
     @Column(name = "PAYEE_ID")
     private Long payee_id;
 
     @Column(name = "MEDIUM")
-    private String medium;
+    private Medium medium;
 
     @Column(name = "AMOUNT")
     private Double amount;
@@ -50,36 +50,35 @@ public class Deposit {
         this.type = type;
     }
 
-    public String getTransaction_date() {
-        return transaction_date;
+    public String getTransactionDate() {
+        return transaction_date.getTransactionType();
     }
 
-    public void setTransaction_date(String transaction_date) {
-        this.transaction_date = transaction_date;
+    public void setTransactionDate(String transaction_date) {
+        this.transaction_date.setTransactionType(transaction_date);
     }
 
     public String getStatus() {
-        return status;
+        return status.getStatus();
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status.setStatus(status);
     }
-
-    public Long getPayee_id() {
+    public Long getPayeeId() {
         return payee_id;
     }
 
-    public void setPayee_id(Long payee_id) {
+    public void setPayeeId(Long payee_id) {
         this.payee_id = payee_id;
     }
 
     public String getMedium() {
-        return medium;
+        return medium.getMedium();
     }
 
     public void setMedium(String medium) {
-        this.medium = medium;
+        this.medium.setMedium(medium);
     }
 
     public Double getAmount() {
