@@ -10,14 +10,14 @@ public class Withdraw {
 
     @Id
     @GeneratedValue
-    @Column(name = "DEPOSIT_ID")
+    @Column(name = "WITHDRAW_ID")
     private Long id;
 
-    @Column(name = "Deposit_TYPE")
-    private String type;
+    @Column(name = "WITHDRAW_TYPE")
+    private TransactionType type;
 
     @Column(name = "TRANSACTION_DATE")
-    private TransactionType transaction_date;
+    private String transaction_date;
 
     @Column(name = "STATUS")
     private Status status;
@@ -43,19 +43,19 @@ public class Withdraw {
     }
 
     public String getType() {
-        return type;
+        return type.getTransactionType();
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type.setTransactionType(type);
     }
 
     public String getTransactionDate() {
-        return transaction_date.getTransactionType();
+        return transaction_date;
     }
 
     public void setTransactionDate(String transaction_date) {
-        this.transaction_date.setTransactionType(transaction_date);
+        this.transaction_date = transaction_date;
     }
 
     public String getStatus() {

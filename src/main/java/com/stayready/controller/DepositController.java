@@ -39,7 +39,7 @@ public class DepositController {
     }
 
     @RequestMapping(value = "/accounts/{accountId}/deposits", method = RequestMethod.POST)
-    public ResponseEntity<?> createDeposit(@PathVariable Long accountId, @RequestBody Deposit deposit){
+    public ResponseEntity<?> createDeposit(@RequestBody Deposit deposit){
 
         deposit = depositRepository.save(deposit);
         // Set the headers for the newly created resource

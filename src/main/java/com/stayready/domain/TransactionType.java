@@ -9,7 +9,7 @@ public enum TransactionType {
         private String transactionType;
 
 
-    TransactionType(String transactionType)
+        TransactionType(String transactionType)
         {
             this.transactionType = transactionType;
         }

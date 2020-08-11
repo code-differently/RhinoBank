@@ -38,7 +38,7 @@ public class WithdrawController {
     }
 
     @RequestMapping(value = "/accounts/{accountId}/withdrawals", method = RequestMethod.POST)
-    public ResponseEntity<?> createWithdrawal(@PathVariable Long accountId, @RequestBody Withdraw withdraw){
+    public ResponseEntity<?> createWithdrawal(@RequestBody Withdraw withdraw){
 
         withdraw = withdrawRepository.save(withdraw);
         // Set the headers for the newly created resource
