@@ -3,9 +3,11 @@ package com.stayready.domains;
 import com.stayready.enums.BillStatus;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Bill {
     @Id
     @GeneratedValue

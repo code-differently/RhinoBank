@@ -1,10 +1,10 @@
 package com.stayready.domains;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
+@Entity
 public class Customer {
     @Id
     @GeneratedValue
@@ -13,6 +13,10 @@ public class Customer {
 
     private String first_Name;
     private String last_Name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @OrderBy
+    @Size(min = 2, max = 6)
     private Set<Address> address;
 
     public long getId() {

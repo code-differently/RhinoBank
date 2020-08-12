@@ -19,6 +19,8 @@ public class Account {
     private AccountType type;
     private String nickname;
     private int rewards;
+
+    @OneToOne
     private Customer customer;
 
     public long getId() {

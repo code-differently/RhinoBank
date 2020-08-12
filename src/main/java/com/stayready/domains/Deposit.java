@@ -5,9 +5,11 @@ import com.stayready.enums.MediumType;
 import com.stayready.enums.TransactionType;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Deposit {
 
     @Id
