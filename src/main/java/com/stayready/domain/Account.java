@@ -1,7 +1,5 @@
 package com.stayready.domain;
 
-import com.stayready.enums.Type;
-
 import javax.persistence.*;
 
 @Entity
