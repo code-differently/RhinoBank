@@ -34,7 +34,9 @@ public class DepositTest {
 
     @Test
     public void setTypeTest() {
-
+        TransactionType type = TransactionType.DEPOSIT;
+        d.setType(type);
+        Assert.assertEquals(type, d.getType());
     }
 
     @Test
@@ -56,6 +58,9 @@ public class DepositTest {
 
     @Test
     public void setStatusTest() {
+        Status status = Status.COMPLETED;
+        d.setStatus(status);
+        Assert.assertEquals(status, d.getStatus());
     }
 
     @Test
@@ -77,6 +82,9 @@ public class DepositTest {
 
     @Test
     public void setMediumTest() {
+        Medium medium = Medium.REWARDS;
+        d.setMedium(medium);
+        Assert.assertEquals(medium, d.getMedium());
     }
 
     @Test

@@ -42,12 +42,12 @@ public class Withdraw {
         this.id = id;
     }
 
-    public String getType() {
-        return type.getTransactionType();
+    public TransactionType getType() {
+        return type;
     }
 
-    public void setType(String type) {
-        this.type.setTransactionType(type);
+    public void setType(TransactionType type) {
+        this.type = type;
     }
 
     public String getTransactionDate() {
@@ -58,12 +58,12 @@ public class Withdraw {
         this.transaction_date = transaction_date;
     }
 
-    public String getStatus() {
-        return status.getStatus();
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatus(String status) {
-        this.status.setStatus(status);
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Long getPayeeId() {
@@ -74,12 +74,12 @@ public class Withdraw {
         this.payee_id = payee_id;
     }
 
-    public String getMedium() {
-        return medium.getMedium();
+    public Medium getMedium() {
+        return medium;
     }
 
-    public void setMedium(String medium) {
-        this.medium.setMedium(medium);
+    public void setMedium(Medium medium) {
+        this.medium = medium;
     }
 
     public Double getAmount() {

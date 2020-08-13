@@ -35,8 +35,8 @@ public class WithdrawTest {
     @Test
     public void setTypeTest() {
         TransactionType type = TransactionType.WITHDRAW;
-        type.setTransactionType("Deposit");
-        System.out.println(type);
+        w.setType(type);
+        Assert.assertEquals(type, w.getType());
     }
 
     @Test
@@ -58,6 +58,9 @@ public class WithdrawTest {
 
     @Test
     public void setStatusTest() {
+        Status status = Status.COMPLETED;
+        w.setStatus(status);
+        Assert.assertEquals(status, w.getStatus());
     }
 
     @Test
@@ -79,11 +82,14 @@ public class WithdrawTest {
 
     @Test
     public void setMediumTest() {
+        Medium medium = Medium.REWARDS;
+        w.setMedium(medium);
+        Assert.assertEquals(medium, w.getMedium());
     }
 
     @Test
     public void getAmountTest() {
-        Assert.assertEquals(.1,0.0, w.getAmount());
+        Assert.assertEquals(null, w.getAmount());
     }
 
     @Test
