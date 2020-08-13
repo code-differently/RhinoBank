@@ -25,5 +25,4 @@ public enum TransactionType {
             this.transactionType = transactionType;
         }
 
-
 }

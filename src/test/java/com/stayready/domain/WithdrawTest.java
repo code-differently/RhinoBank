@@ -34,9 +34,9 @@ public class WithdrawTest {
 
     @Test
     public void setTypeTest() {
-       /* TransactionType type = TransactionType.DEPOSIT;
-        w.setType(type.getTransactionType());
-        Assert.assertEquals(type.getTransactionType(), w.getType()); */
+        TransactionType type = TransactionType.WITHDRAW;
+        type.setTransactionType("Deposit");
+        System.out.println(type);
     }
 
     @Test
@@ -46,6 +46,9 @@ public class WithdrawTest {
 
     @Test
     public void setTransactionDateTest() {
+        String exp = "1/2/2020";
+        w.setTransactionDate(exp);
+        Assert.assertEquals(exp, w.getTransactionDate());
     }
 
     @Test

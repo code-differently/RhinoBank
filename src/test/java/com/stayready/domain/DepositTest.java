@@ -44,6 +44,9 @@ public class DepositTest {
 
     @Test
     public void setTransactionDateTest() {
+        String exp = "1/2/2020";
+        d.setTransactionDate(exp);
+        Assert.assertEquals(exp, d.getTransactionDate());
     }
 
     @Test
