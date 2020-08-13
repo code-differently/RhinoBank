@@ -2,9 +2,7 @@ package com.stayready.domain;
 
 import com.stayready.enums.Type;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Account {
     @Id
@@ -12,11 +10,18 @@ public class Account {
     @Column(name = "ACCOUNT_ID")
     private Long id;
 
-    private Type type;
-    private String nickname;
-    private int rewards;
-    //private Customer customer;
+    @Column(name = "ACCOUNT_TYPE")
+    private String type;
 
+    @Column(name = "ACCOUNT_NICKNAME")
+    private String nickname;
+
+    @Column(name = "ACCOUNT_REWARDS")
+    private int rewards;
+
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID")
+    private Long customerId;
 
     public Long getId() {
         return id;
@@ -26,11 +31,11 @@ public class Account {
         this.id = id;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -50,11 +55,11 @@ public class Account {
         this.rewards = rewards;
     }
 
-//    public Customer getCustomer() {
-//        return this.customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    public Long getCustomerId() {
+        return this.customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
 }
