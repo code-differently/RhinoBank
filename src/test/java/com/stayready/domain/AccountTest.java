@@ -77,18 +77,18 @@ public class AccountTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void getCustomerTest() {
-        assertNull(account.getCustomerId());
-    }
-
-    @Test
-    public void setCustomerTest() {
-        Long expected = 4L;
-
-        account.setCustomerId(expected);
-        Long actual = account.getCustomerId();
-
-        assertEquals(expected, actual);
-    }
+//    @Test
+//    public void getCustomerTest() {
+//        assertNull(account.getCustomerId());
+//    }
+//
+//    @Test
+//    public void setCustomerTest() {
+//        Long expected = 4L;
+//
+//        account.setCustomerId(expected);
+//        Long actual = account.getCustomerId();
+//
+//        assertEquals(expected, actual);
+//    }
 }

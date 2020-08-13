@@ -4,6 +4,7 @@ import com.stayready.enums.Type;
 
 import javax.persistence.*;
 
+@Entity
 public class Account {
     @Id
     @GeneratedValue
@@ -19,9 +20,9 @@ public class Account {
     @Column(name = "ACCOUNT_REWARDS")
     private int rewards;
 
-    @ManyToOne
-    @JoinColumn(name = "CUSTOMER_ID")
-    private Long customerId;
+//    @ManyToOne
+//    @JoinColumn(name = "CUSTOMER_ID")
+//    private Long customerId;
 
     public Long getId() {
         return id;
@@ -55,11 +56,11 @@ public class Account {
         this.rewards = rewards;
     }
 
-    public Long getCustomerId() {
-        return this.customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+//    public Long getCustomerId() {
+//        return this.customerId;
+//    }
+//
+//    public void setCustomerId(Long customerId) {
+//        this.customerId = customerId;
+//    }
 }
