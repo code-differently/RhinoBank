@@ -56,8 +56,7 @@ public class AccountController
     {
         Account a = accountRepository.findOne(accountId);
 
-        if(a == null)
-        {
+        if(a == null) {
             throw new ResourceNotFoundException(accountId + " was not found!", null);
         }
     }
