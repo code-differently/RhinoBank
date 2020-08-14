@@ -13,11 +13,11 @@ public class Deposit {
     @Column(name = "DEPOSIT_ID")
     private Long id;
 
-    @Column(name = "Deposit_TYPE")
-    private String type;
+    @Column(name = "DEPOSIT_TYPE")
+    private TransactionType type;
 
     @Column(name = "TRANSACTION_DATE")
-    private TransactionType transaction_date;
+    private String transaction_date;
 
     @Column(name = "STATUS")
     private Status status;
@@ -42,29 +42,30 @@ public class Deposit {
         this.id = id;
     }
 
-    public String getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
     public String getTransactionDate() {
-        return transaction_date.getTransactionType();
+        return transaction_date;
     }
 
     public void setTransactionDate(String transaction_date) {
-        this.transaction_date.setTransactionType(transaction_date);
+        this.transaction_date = transaction_date;
     }
 
-    public String getStatus() {
-        return status.getStatus();
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatus(String status) {
-        this.status.setStatus(status);
+    public void setStatus(Status status) {
+        this.status = status;
     }
+
     public Long getPayeeId() {
         return payee_id;
     }
@@ -73,12 +74,12 @@ public class Deposit {
         this.payee_id = payee_id;
     }
 
-    public String getMedium() {
-        return medium.getMedium();
+    public Medium getMedium() {
+        return medium;
     }
 
-    public void setMedium(String medium) {
-        this.medium.setMedium(medium);
+    public void setMedium(Medium medium) {
+        this.medium = medium;
     }
 
     public Double getAmount() {

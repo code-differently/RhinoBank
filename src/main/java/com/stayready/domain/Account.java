@@ -25,6 +25,7 @@ public class Account
     @Column(name = "BALANCE")
     private Double balance;
 
+
     //figure out how to represent the customer
 
     public Long getId()
@@ -41,9 +42,9 @@ public class Account
         return accountType;
     }
 
-    public void setAccountType(String accountType)
+    public void setAccountType(AccountType accountType)
     {
-        this.accountType.setAccountType(accountType);
+        this.accountType = accountType;
     }
 
 

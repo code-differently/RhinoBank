@@ -1,7 +1,9 @@
 package com.stayready.controller;
 
+import com.stayready.domain.Deposit;
 import com.stayready.domain.Withdraw;
 import com.stayready.repositories.WithdrawRepository;
+import org.springframework.boot.context.config.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,12 +35,13 @@ public class WithdrawController {
     @RequestMapping(value = "/withdrawals/{withdrawId}", method = RequestMethod.GET)
     public ResponseEntity<?> getWithdrawal(@PathVariable Long withdrawId){
 
+        verifyWithdraw(withdrawId);
         Withdraw w = withdrawRepository.findOne(withdrawId);
         return new ResponseEntity<>(w, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/accounts/{accountId}/withdrawals", method = RequestMethod.POST)
-    public ResponseEntity<?> createWithdrawal(@PathVariable Long accountId, @RequestBody Withdraw withdraw){
+    public ResponseEntity<?> createWithdrawal(@RequestBody Withdraw withdraw){
 
         withdraw = withdrawRepository.save(withdraw);
         // Set the headers for the newly created resource
@@ -51,14 +54,23 @@ public class WithdrawController {
     @RequestMapping(value = "withdrawals/{withdrawalId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateWithdrawal(@PathVariable Long withdrawId, @RequestBody Withdraw withdraw){
 
+        verifyWithdraw(withdrawId);
         Withdraw w = withdrawRepository.save(withdraw);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "withdrawals/{withdrawalId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteWithdrawal(@PathVariable Long withdrawId){
-
+        verifyWithdraw(withdrawId);
         withdrawRepository.delete(withdrawId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    public void verifyWithdraw(Long withdrawId) throws ResourceNotFoundException {
+        Withdraw w = withdrawRepository.findOne(withdrawId);
+
+        if(w==null){
+            throw new ResourceNotFoundException(withdrawId + " was not found!", null);
+        }
     }
 }
