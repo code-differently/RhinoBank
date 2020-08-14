@@ -1,14 +1,25 @@
 package com.stayready.domain;
 
-import sun.jvm.hotspot.debugger.Address;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Set;
 
+@Entity
 public class Customer {
-     private Long id;
-     private String firstName;
-     private String lastName;
-     private Set<Address> address;
+    @Id
+    @GeneratedValue
+    @Column(name="CUSTOMER_ID")
+    private Long id;
+
+    @Column(name="FIRST_NAME")
+    private String firstName;
+    @Column(name="LAST_NAME")
+    private String lastName;
+
+//    @Column(name="ADDRESS")
+//    private Set<Address> address;
 
 
     public Long getId() {
@@ -34,12 +45,12 @@ public class Customer {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public Set<Address> getAddress() {
-        return address;
-    }
-
-    public void setAddress(Set<Address> address) {
-        this.address = address;
-    }
+//
+//    public Set<Address> getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Set<Address> address) {
+//        this.address = address;
+//    }
 }

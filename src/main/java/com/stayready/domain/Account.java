@@ -1,9 +1,6 @@
 package com.stayready.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Account
@@ -27,6 +24,9 @@ public class Account
 
 
     //figure out how to represent the customer
+    @ManyToOne
+    @JoinColumn(name="CUSTOMER_ID")
+    private Customer customer;
 
     public Long getId()
     {
