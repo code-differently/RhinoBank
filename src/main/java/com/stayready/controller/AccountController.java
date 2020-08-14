@@ -4,9 +4,11 @@ import com.stayready.domain.Account;
 import com.stayready.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ResourceNotFoundException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 public class AccountController
@@ -23,12 +25,24 @@ public class AccountController
         Iterable<Account> allAccounts = accountRepository.findAll();
         return new ResponseEntity<>(allAccounts, HttpStatus.OK);
     }
-    /*
+    @RequestMapping(value="/customers/{customerId}/accounts", method = RequestMethod.GET)
+    public Iterable<Account> getAllAccountsForCustomer(Long customerId)
+    {
+        return accountRepository.findAllAccountsForCustomer(customerId);
+    }
 
-    TODO: get all accounts for customer
-    TODO: Create an account (need customer done first)
+    @RequestMapping(value="/customers/{customerId}/accounts", method = RequestMethod.POST)
+    public ResponseEntity<?> createAccount(@PathVariable Long customerId, @RequestBody Account a)
+    {
+        a = accountRepository.save(a);
 
-     */
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.setLocation(ServletUriComponentsBuilder.
+                fromCurrentRequest().path("/{id}").buildAndExpand(a.getId()).toUri());
+
+        return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+    }
+
 
     @RequestMapping(value = "/accounts/{accountId}", method = RequestMethod.GET)
     public ResponseEntity<?> getAccount(@PathVariable Long accountId) {

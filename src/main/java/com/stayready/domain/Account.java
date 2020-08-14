@@ -22,8 +22,6 @@ public class Account
     @Column(name = "BALANCE")
     private Double balance;
 
-
-    //figure out how to represent the customer
     @ManyToOne
     @JoinColumn(name="CUSTOMER_ID")
     private Customer customer;
@@ -70,5 +68,14 @@ public class Account
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    public void setCustomer(Customer customer)
+    {
+        this.customer = customer;
     }
 }
