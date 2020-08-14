@@ -3,6 +3,7 @@ package com.stayready.controller;
 import com.stayready.domain.Deposit;
 import com.stayready.repositories.DepositRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,7 @@ public class DepositController {
     @RequestMapping(value = "/deposits/{depositId}", method = RequestMethod.GET)
     public ResponseEntity<?> getDeposit(@PathVariable Long depositId){
 
+        verifyDeposit(depositId);
         Deposit d = depositRepository.findOne(depositId);
         return new ResponseEntity<>(d, HttpStatus.OK);
     }
@@ -52,14 +54,23 @@ public class DepositController {
     @RequestMapping(value = "deposits/{depositId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateDeposit(@PathVariable Long depositId, @RequestBody Deposit deposit){
 
+        verifyDeposit(depositId);
         Deposit d = depositRepository.save(deposit);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "deposits/{depositId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteDeposit(@PathVariable Long depositId){
-
+        verifyDeposit(depositId);
         depositRepository.delete(depositId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    public void verifyDeposit(Long depositId) throws ResourceNotFoundException {
+        Deposit d = depositRepository.findOne(depositId);
+
+        if(d==null){
+            throw new ResourceNotFoundException(depositId + " was not found!", null);
+        }
     }
 }
