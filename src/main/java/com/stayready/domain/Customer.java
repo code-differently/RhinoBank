@@ -8,18 +8,20 @@ import java.util.Set;
 
 @Entity
 public class Customer {
+
     @Id
     @GeneratedValue
     @Column(name="CUSTOMER_ID")
     private Long id;
 
     @Column(name="FIRST_NAME")
+
     private String firstName;
     @Column(name="LAST_NAME")
     private String lastName;
 
-//    @Column(name="ADDRESS")
-//    private Set<Address> address;
+    @Column(name="ADDRESS")
+   private Set<Address> address;
 
 
     public Long getId() {
@@ -45,12 +47,12 @@ public class Customer {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-//
-//    public Set<Address> getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Set<Address> address) {
-//        this.address = address;
-//    }
+
+    public Set<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(Set<Address> address) {
+        this.address = address;
+    }
 }
