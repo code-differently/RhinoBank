@@ -12,10 +12,19 @@ public class Address {
     @Column(name = "ADDRESS_ID")
     private long id;
 
+    @Column
     private String street_Number;
+
+    @Column
     private String street_Name;
+
+    @Column
     private String city;
-    private String state;
+
+    @Column
+    private String stateN;
+
+    @Column
     private String zip;
 
     public long getId() {
@@ -47,11 +56,11 @@ public class Address {
     }
 
     public String getState() {
-        return state;
+        return stateN;
     }
 
     public void setState(String state) {
-        this.state = state;
+        this.stateN = state;
     }
 
     public String getZip() {

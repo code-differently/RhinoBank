@@ -11,10 +11,14 @@ public class Customer {
     @Column(name = "CUSTOMER_ID")
     private long id;
 
+    @Column
     private String first_Name;
+
+    @Column
     private String last_Name;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CUSTOMER_ID")
     @OrderBy
     @Size(min = 2, max = 6)
     private Set<Address> address;

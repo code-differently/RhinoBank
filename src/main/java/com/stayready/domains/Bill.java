@@ -14,14 +14,31 @@ public class Bill {
     @Column(name = "BILL_ID")
     private long id;
 
+    @Column
     private BillStatus status;
+
+    @Column
     private String payee;
+
+    @Column
     private String nickname;
+
+    @Column
     private String creation_Date;
+
+    @Column
     private String payment_Date;
+
+    @Column
     private int recurring_Date;
+
+    @Column
     private String upcoming_Payment_Date;
+
+    @Column
     private double payment_Amount;
+
+    @Column
     private String account_Id;
 
     public long getId() {
