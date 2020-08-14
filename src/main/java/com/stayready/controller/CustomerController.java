@@ -13,7 +13,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 
+@RestController
 public class CustomerController {
+
     private CustomerRepository customerRepository;
 
     @Autowired
