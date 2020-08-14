@@ -43,6 +43,7 @@ public class AccountController
         verifyAccount(accountId);
         Account p = accountRepository.save(account);
         return new ResponseEntity<>(HttpStatus.OK);
+        
     }
 
     @RequestMapping(value = "/accounts/{accountId}", method = RequestMethod.DELETE)
